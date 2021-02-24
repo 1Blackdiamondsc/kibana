@@ -24,9 +24,6 @@ export ES_HOST
 STATIC_SITE_URL_BASE='https://kibana-coverage.elastic.dev'
 export STATIC_SITE_URL_BASE
 
-DELAY=100
-export DELAY
-
 TEAM_ASSIGN_PATH=$5
 
 # Build team assignments dat file
@@ -39,7 +36,7 @@ for x in functional jest; do
   echo "### Ingesting coverage for ${x}"
   COVERAGE_SUMMARY_FILE=target/kibana-coverage/${x}-combined/coverage-summary.json
   # running in background to speed up ingestion
-  node scripts/ingest_coverage.js --verbose --path ${COVERAGE_SUMMARY_FILE} --vcsInfoPath ./VCS_INFO.txt --teamAssignmentsPath $TEAM_ASSIGN_PATH &
+  node scripts/ingest_coverage.js --path ${COVERAGE_SUMMARY_FILE} --vcsInfoPath ./VCS_INFO.txt --teamAssignmentsPath $TEAM_ASSIGN_PATH &
 done
 wait
 
