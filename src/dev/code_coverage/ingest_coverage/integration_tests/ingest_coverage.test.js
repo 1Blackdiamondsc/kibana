@@ -24,7 +24,7 @@ const env = {
   FETCHED_PREVIOUS: 'FAKE_PREVIOUS_SHA',
 };
 
-describe('Ingesting coverage', () => {
+describe.skip('Ingesting coverage', () => {
   const teamAssignmentsPath =
     'src/dev/code_coverage/ingest_coverage/team_assignment/team_assignments.txt';
 
